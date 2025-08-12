@@ -1,8 +1,9 @@
 
+require("dotenv").config()
 const mongoose = require("mongoose")
-const mongoUrl = "mongodb://127.0.0.1:27017/hotel"
+const mongoUrl = process.env.MONGODB_URL;
 
-mongoose.connect(mongoUrl )
+mongoose.connect(mongoUrl)
 
 const db = mongoose.connection;
 
@@ -22,4 +23,4 @@ db.on("disconnected",()=>{
 })
 
 
-module.exports=db
+module.exports=db 
